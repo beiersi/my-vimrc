@@ -4,27 +4,27 @@ set showcmd
 set incsearch
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-vnoremap <BS> d
+" vnoremap <BS> d
 
 " CTRL-X and SHIFT-Del are Cut
-vnoremap <C-X> "+x
-vnoremap <S-Del> "+x
+" vnoremap <C-X> "+x
+" vnoremap <S-Del> "+x
 
 " CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
+" vnoremap <C-C> "+y
+" vnoremap <C-Insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
-map <C-V> "+gP
-map <S-Insert> "+gP
+" map <C-V> "+gP
+" map <S-Insert> "+gP
 
-cmap <C-V> <C-R>+
-cmap <S-Insert> <C-R>+
+" cmap <C-V> <C-R>+
+" cmap <S-Insert> <C-R>+
 
-exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+" exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
+" exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 
-imap <S-Insert> <C-V>
+" imap <S-Insert> <C-V>
 
 set bsdir=buffer  
 " 设置编码  
