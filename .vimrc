@@ -72,5 +72,8 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+let $rvm_path = expand('/usr/local/rvm')
+let $PATH .= ':' . $rvm_path . '/bin'
+
 " set shell=/bin/sh
 " !/usr/local/rvm/scripts/rvm
