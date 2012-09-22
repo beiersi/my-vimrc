@@ -58,7 +58,8 @@ set autoindent shiftwidth=4
 " 设定特殊tab宽度
 autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js set noexpandtab tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
-
+" 设定字体字号
+set guifont=DejaVu\ Sans\ Mono\ 10 
 " rvm.vim
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{exists('g:loaded_rvm')?rvm#statusline():''}%=%-16(\ %l,%c-%v\ %)%P 
 
