@@ -1,30 +1,38 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'bufexplorer.zip'
+
+Bundle 'Raimondi/delimitMate'
+
+Bundle 'kien/ctrlp.vim'
+
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+Bundle 'scrooloose/nerdtree'
+
+Bundle 'msanders/snipmate.vim'
+
+Bundle 'SuperTab'
+
+Bundle 'mattn/zencoding-vim'
+
+Bundle 'blackboard.vim'
+
+filetype plugin indent on
+
 set history=50
-set	ruler
+set ruler
 set showcmd
 set incsearch
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-" vnoremap <BS> d
-
-" CTRL-X and SHIFT-Del are Cut
-" vnoremap <C-X> "+x
-" vnoremap <S-Del> "+x
-
-" CTRL-C and CTRL-Insert are Copy
-" vnoremap <C-C> "+y
-" vnoremap <C-Insert> "+y
-
-" CTRL-V and SHIFT-Insert are Paste
-" map <C-V> "+gP
-" map <S-Insert> "+gP
-
-" cmap <C-V> <C-R>+
-" cmap <S-Insert> <C-R>+
-
-" exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-" exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
-
-" imap <S-Insert> <C-V>
 
 set bsdir=buffer  
 " 设置编码  
@@ -54,9 +62,11 @@ set is
 " tab宽度  
 set tabstop=4  
 set cindent shiftwidth=4  
-set autoindent shiftwidth=4  
+set autoindent shiftwidth=4
+set expandtab
 " 设定特殊tab宽度
-autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js set noexpandtab tabstop=2 shiftwidth=2
+" autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js,*.phtml set noexpandtab tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
 " 设定字体字号
 set guifont=DejaVu\ Sans\ Mono\ 10 
@@ -67,7 +77,7 @@ filetype plugin indent on
 " 把 F8 映射到 启动NERDTree插件  
 map <F8> :NERDTreeToggle<CR>  
 
-" 标签之间移动
+" 窗口之间移动
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -75,6 +85,3 @@ map <C-l> <C-W>l
 
 let $rvm_path = expand('/usr/local/rvm')
 let $PATH .= ':' . $rvm_path . '/bin'
-
-" set shell=/bin/sh
-" !/usr/local/rvm/scripts/rvm
