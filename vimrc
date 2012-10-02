@@ -19,11 +19,13 @@ Bundle 'scrooloose/nerdtree'
 
 Bundle 'msanders/snipmate.vim'
 
-Bundle 'SuperTab'
+Bundle 'ervandew/supertab'
 
 Bundle 'mattn/zencoding-vim'
 
 Bundle 'blackboard.vim'
+
+Bundle 'bbommarito/vim-slim'
 
 filetype plugin indent on
 
