@@ -23,6 +23,8 @@ Bundle 'ervandew/supertab'
 
 Bundle 'mattn/zencoding-vim'
 
+Bundle 'kchmck/vim-coffee-script'
+
 Bundle 'blackboard.vim'
 
 Bundle 'bbommarito/vim-slim'
