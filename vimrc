@@ -27,7 +27,7 @@ Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'blackboard.vim'
 
-Bundle 'bbommarito/vim-slim'
+Bundle 'slim-template/vim-slim'
 
 Bundle 'tpope/vim-rvm'
 Bundle 'tpope/vim-rails'
