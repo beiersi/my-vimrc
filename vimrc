@@ -40,6 +40,19 @@ set showcmd
 set incsearch
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
+" 判断操作系统
+if (has("win32") || has("win64") || has("win32unix"))
+    let g:is_windows = 1
+else
+    let g:is_windows = 0
+endif
+
+" 判断是否gui
+if (has("gui_running"))
+    let g:is_gui = 1
+else
+    let g:is_gui = 0
+endif
 
 set bsdir=buffer  
 " 设置编码  
@@ -65,7 +78,7 @@ set cul
 " 配色方案
 colorscheme blackboard
 " 关闭粗体显示
-highlight type gui=none
+" highlight type gui=none
 " 查找结果高亮度显示  
 set hlsearch  
 " 查找不区分大小写
@@ -80,7 +93,8 @@ set expandtab
 autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js,*.phtml set noexpandtab tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
 " 设定字体字号
-set guifont=DejaVu\ Sans\ Mono\ 10 
+set guifont=DejaVu\ Sans\ Mono:h11 
+" set guifont=monaco:h10
 
 " 把 F8 映射到 启动NERDTree插件  
 map <F8> :NERDTreeToggle<CR>  
@@ -99,3 +113,10 @@ end
 " rvm.vim
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{exists('g:loaded_rvm')?rvm#statusline():''}%=%-16(\ %l,%c-%v\ %)%P 
 " set statusline+=%{rvm#statusline()}
+
+" windows 下菜单的编码设定
+if (g:is_windows && g:is_gui)
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+endif
+
