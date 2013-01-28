@@ -1,5 +1,20 @@
 set nocompatible
+
 filetype off
+
+" 判断操作系统
+if (has("win32") || has("win64") || has("win32unix"))
+    let g:is_windows = 1
+else
+    let g:is_windows = 0
+endif
+
+" 判断是否gui
+if (has("gui_running"))
+    let g:is_gui = 1
+else
+    let g:is_gui = 0
+endif
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -29,8 +44,10 @@ Bundle 'blackboard.vim'
 
 Bundle 'slim-template/vim-slim'
 
-Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-rails'
+if !g:is_windows
+    Bundle 'tpope/vim-rvm'
+    Bundle 'tpope/vim-rails'
+endif
 
 filetype plugin indent on
 
@@ -40,19 +57,6 @@ set showcmd
 set incsearch
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-" 判断操作系统
-if (has("win32") || has("win64") || has("win32unix"))
-    let g:is_windows = 1
-else
-    let g:is_windows = 0
-endif
-
-" 判断是否gui
-if (has("gui_running"))
-    let g:is_gui = 1
-else
-    let g:is_gui = 0
-endif
 
 set bsdir=buffer  
 " 设置编码  
@@ -60,9 +64,6 @@ set encoding=utf-8
 "set langmenu=zh_CN.UTF-8
 " 设置提示信息编码
 language message zh_CN.UTF-8
-" 设置菜单编码  
-" source $VIMRUNTIME/delmenu.vim
-" source $VIMRUNTIME/menu.vim
 " 设置文件编码  
 set fileencoding=utf-8  
 " 设置文件编码检测类型及支持格式  
@@ -92,9 +93,19 @@ set expandtab
 " autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js,*.phtml set noexpandtab tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
+
 " 设定字体字号
-set guifont=DejaVu\ Sans\ Mono:h11 
-" set guifont=monaco:h10
+if g:is_gui
+    if g:is_windows
+        set guifont=DejaVu\ Sans\ Mono:h11 
+
+        " windows 菜单编码设定
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+    else
+        set guifont=DejaVu\ Sans\ Mono\ 10
+    end
+end
 
 " 把 F8 映射到 启动NERDTree插件  
 map <F8> :NERDTreeToggle<CR>  
@@ -105,7 +116,8 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-if !exists("$rvm_path") && isdirectory(expand('/usr/local/rvm'))
+" 设定rvm_path
+if !g:is_windows && !exists("$rvm_path") && isdirectory(expand('/usr/local/rvm'))
     let $rvm_path = expand('/usr/local/rvm')
     let $PATH .= ':' . $rvm_path . '/bin'
 end
@@ -113,10 +125,4 @@ end
 " rvm.vim
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{exists('g:loaded_rvm')?rvm#statusline():''}%=%-16(\ %l,%c-%v\ %)%P 
 " set statusline+=%{rvm#statusline()}
-
-" windows 下菜单的编码设定
-if (g:is_windows && g:is_gui)
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
-endif
 
