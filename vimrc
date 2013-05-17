@@ -92,7 +92,7 @@ set expandtab
 " 设定特殊tab宽度
 " autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js,*.phtml set noexpandtab tabstop=2 shiftwidth=2
-autocmd BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.rb,*.erb,*.coffee set tabstop=2 shiftwidth=2 expandtab
 
 " 设定字体字号
 if g:is_gui
