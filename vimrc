@@ -103,7 +103,7 @@ if g:is_gui
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
     else
-        set guifont=DejaVu\ Sans\ Mono\ 10
+        set guifont=DejaVu\ Sans\ Mono\ 11
     end
 end
 
