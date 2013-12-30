@@ -122,6 +122,9 @@ if !g:is_windows && !exists("$rvm_path") && isdirectory(expand('/usr/local/rvm')
     let $PATH .= ':' . $rvm_path . '/bin'
 end
 
+" SuperTabMappingTabLiteral
+let g:SuperTabMappingTabLiteral = '<s-space>'
+
 " rvm.vim
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{exists('g:loaded_rvm')?rvm#statusline():''}%=%-16(\ %l,%c-%v\ %)%P 
 " set statusline+=%{rvm#statusline()}
