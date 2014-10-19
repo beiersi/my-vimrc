@@ -36,7 +36,7 @@ Bundle 'msanders/snipmate.vim'
 
 Bundle 'ervandew/supertab'
 
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 
 Bundle 'kchmck/vim-coffee-script'
 
