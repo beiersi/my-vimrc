@@ -3,10 +3,13 @@ set nocompatible
 filetype off
 
 " 判断操作系统
+let g:is_windows = 0
+let g:is_mac = 0
+
 if (has("win32") || has("win64") || has("win32unix"))
     let g:is_windows = 1
-else
-    let g:is_windows = 0
+elseif (has("mac"))
+    let g:is_mac = 1
 endif
 
 " 判断是否gui
@@ -15,6 +18,10 @@ if (has("gui_running"))
 else
     let g:is_gui = 0
 endif
+
+" smarty 定界符
+let g:smarty_left_delim = '{%'
+let g:smarty_right_delim = '%}'
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -38,11 +45,23 @@ Bundle 'ervandew/supertab'
 
 Bundle 'mattn/emmet-vim'
 
+Bundle 'mattn/webapi-vim'
+
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'blackboard.vim'
 
 Bundle 'slim-template/vim-slim'
+
+Bundle 'nono/vim-handlebars'
+
+Bundle 'pangloss/vim-javascript'
+
+" Bundle 'heartsentwined/vim-ember-script'
+
+Bundle 'heartsentwined/vim-emblem'
+
+Bundle 'blueyed/smarty.vim'
 
 if !g:is_windows
     Bundle 'tpope/vim-rvm'
@@ -90,20 +109,23 @@ set cindent shiftwidth=4
 set autoindent shiftwidth=4
 set expandtab
 " 设定特殊tab宽度
-" autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.js,*.phtml set noexpandtab tabstop=2 shiftwidth=2
-autocmd BufNewFile,BufRead *.rb,*.erb,*.coffee set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.phtml set noexpandtab tabstop=2 cindent shiftwidth=2
+autocmd BufNewFile,BufRead *.rb,*.erb,*.coffee,*.js,*.tpl set tabstop=2 cindent shiftwidth=2 expandtab
+autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars noexpandtab tabstop=2 cindent shiftwidth=2
 
 " 设定字体字号
 if g:is_gui
     if g:is_windows
-        set guifont=DejaVu\ Sans\ Mono:h11 
+        set guifont=DejaVu\ Sans\ Mono:h14 
 
         " windows 菜单编码设定
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
+    elseif g:is_mac
+        set guifont=Monaco:h14
     else
-        set guifont=DejaVu\ Sans\ Mono\ 11
+        set guifont=DejaVu\ Sans\ Mono\ 14
     end
 end
 
@@ -118,8 +140,8 @@ map <C-l> <C-W>l
 
 " 设定rvm_path
 if !g:is_windows && !exists("$rvm_path") && isdirectory(expand('/usr/local/rvm'))
-    let $rvm_path = expand('/usr/local/rvm')
-    let $PATH .= ':' . $rvm_path . '/bin'
+  " let $rvm_path = expand('/usr/local/rvm')
+  " let $PATH .= ':' . $rvm_path . '/bin'
 end
 
 " SuperTabMappingTabLiteral
