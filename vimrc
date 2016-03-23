@@ -57,6 +57,8 @@ Bundle 'nono/vim-handlebars'
 
 Bundle 'pangloss/vim-javascript'
 
+Bundle 'AnsiEsc.vim'
+
 " Bundle 'heartsentwined/vim-ember-script'
 
 Bundle 'heartsentwined/vim-emblem'
@@ -113,6 +115,9 @@ autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.phtml set noexpandtab tabstop=2 cindent shiftwidth=2
 autocmd BufNewFile,BufRead *.rb,*.erb,*.coffee,*.js,*.tpl set tabstop=2 cindent shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars noexpandtab tabstop=2 cindent shiftwidth=2
+
+" 记录编辑过的文件位置
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
 
 " 设定字体字号
 if g:is_gui
