@@ -106,13 +106,13 @@ set hlsearch
 " 查找不区分大小写
 set is
 " tab宽度  
-set tabstop=4  
-set cindent shiftwidth=4  
-set autoindent shiftwidth=4
+set tabstop=2  
+set cindent shiftwidth=2  
+set autoindent shiftwidth=2
 set expandtab
 " 设定特殊tab宽度
 autocmd BufNewFile,BufRead *.php set expandtab tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.phtml set noexpandtab tabstop=2 cindent shiftwidth=2
+autocmd BufNewFile,BufRead *.html,*.htm,*.css,*.scss,*.phtml,*.erb set noexpandtab tabstop=2 cindent shiftwidth=2
 autocmd BufNewFile,BufRead *.rb,*.erb,*.coffee,*.js,*.tpl set tabstop=2 cindent shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars noexpandtab tabstop=2 cindent shiftwidth=2
 
@@ -132,6 +132,10 @@ if g:is_gui
     else
         set guifont=DejaVu\ Sans\ Mono\ 14
     end
+end
+
+if has("gui_macvim")
+  set transparency=14
 end
 
 " 把 F8 映射到 启动NERDTree插件  
