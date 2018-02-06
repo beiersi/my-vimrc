@@ -24,51 +24,57 @@ let g:smarty_left_delim = '{%'
 let g:smarty_right_delim = '%}'
 
 set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'bufexplorer.zip'
+Plugin 'bufexplorer.zip'
 
-Bundle 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
-Bundle 'msanders/snipmate.vim'
+Plugin 'msanders/snipmate.vim'
 
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 
-Bundle 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 
-Bundle 'mattn/webapi-vim'
+Plugin 'mattn/webapi-vim'
 
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 
-Bundle 'blackboard.vim'
+Plugin 'blackboard.vim'
 
-Bundle 'slim-template/vim-slim'
+Plugin 'slim-template/vim-slim'
 
-Bundle 'nono/vim-handlebars'
+Plugin 'nono/vim-handlebars'
 
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
-Bundle 'AnsiEsc.vim'
+Plugin 'AnsiEsc.vim'
 
-" Bundle 'heartsentwined/vim-ember-script'
+Plugin 'elixir-editors/vim-elixir'
 
-Bundle 'heartsentwined/vim-emblem'
 
-Bundle 'blueyed/smarty.vim'
+
+" Plugin 'heartsentwined/vim-ember-script'
+
+Plugin 'heartsentwined/vim-emblem'
+
+Plugin 'blueyed/smarty.vim'
 
 if !g:is_windows
-    Bundle 'tpope/vim-rvm'
-    Bundle 'tpope/vim-rails'
+    Plugin 'tpope/vim-rvm'
+    Plugin 'tpope/vim-rails'
 endif
+
+call vundle#end() 
 
 filetype plugin indent on
 
